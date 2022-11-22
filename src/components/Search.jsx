@@ -11,7 +11,8 @@ function Search() {
          <img src='https://images.pexels.com/photos/11720281/pexels-photo-11720281.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load' alt='no'></img>
 
           <div className="userChatInfo">
-              <span>Tarang</span>
+              <span>Dhanno</span>
+              <p></p>
           </div>
         </div>
       </div>
