@@ -1,7 +1,14 @@
 import React from 'react'
+import "../style.scss"
+import Navbar from "../components/Navbar"
+import Search from "../components/Search"
 
-export const Sidebar = () => {
+ function Sidebar() {
   return (
-    <div>Sidebar</div>
+    <div className='sidebar'>
+      <Navbar />
+      <Search />
+    </div>
   )
 }
+export default Sidebar;

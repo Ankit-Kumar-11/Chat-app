@@ -1,6 +1,8 @@
 import React from 'react'
-import { Sidebar } from '../Sidebar'
+import  Sidebar from '../Sidebar'
 import Chat from '../Chat'
+import "../../style.scss"
+
 function Home() {
   return (
    <div className="home">

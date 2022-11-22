@@ -62,3 +62,87 @@ body {
            }
         }
     }
+
+    .home {
+        background-color: #a7bcff;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: 100vh;
+
+        .container {
+            display: flex;
+            width: 65%;
+            height: 80%;
+            border: 1px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+
+            .sidebar {
+                flex: 1;
+                background-color: #3e3c61;
+
+                .navbar {
+                    display: flex;
+                    background-color: #2f2d52;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 50px;
+                    padding: 10px;
+                    color: #ddddf7;
+
+                    .logo {
+                        font-weight: bold;
+                    }
+                    .user {
+                        display: flex;
+                        gap: 10px;
+                    
+                        img {
+                           background-color: #ddddf7;
+                           border-radius: 50%;
+                           height: 30px;
+                           width: 30px;
+                           object-fit: cover;
+                        }
+                        span {
+                            font-size: 24px;
+                        }
+                        
+                        button {
+                        background-color: #5d5b8d;
+                        color: #ddddf7;
+                        font-size: 13px;
+                        border: none;
+                        cursor: pointer;
+                        }
+                
+                    } 
+                
+
+                }
+            .search {
+                border-bottom: 1px solid grey;
+ 
+                .searchForm {
+ 
+                    input {
+ 
+                      }
+                }  
+            }
+            .userChat {
+                     
+                img {
+                width: 50px;
+                height: 50px;   
+                border-radius: 50%;
+                object-fit: cover;   
+                }
+            }    
+        }
+            .chat {
+                flex: 2;
+            }
+        }
+    }
