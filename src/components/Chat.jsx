@@ -3,6 +3,8 @@ import "../style.scss"
 import zoom from '../components/Images/zoom.png'
 import add from '../components/Images/add-user.png'
 import call from '../components/Images/phone-call.png'
+import Messages from './Messages'
+import Input from './Input'
 
 
 function Chat() {
@@ -16,6 +18,8 @@ function Chat() {
           <img src={call} alt='va' />
         </div>
       </div>
+      <Messages />
+        <Input />
     </div>
   )
 }
