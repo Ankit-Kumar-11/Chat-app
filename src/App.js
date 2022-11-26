@@ -1,13 +1,10 @@
 
 import "./style.scss"
 import {
-  createBrowserRouter,
-  RouterProvider,
   Route,
-  createRoutesFromElements,
   Routes,
   BrowserRouter,
-  Navigate
+  Navigate,
 } from 'react-router-dom';
 import Register from './components/pages/register';
 import Login from "./components/pages/login";
@@ -22,7 +19,9 @@ function App() {
     if(!currentUser) {
       return <Navigate to='/login' />
     }
-  } 
+
+    return children
+  };
   console.log(currentUser);
   return (
     <BrowserRouter>
@@ -36,10 +35,7 @@ function App() {
           <Route path="register" element={<Register />} />      
       </Route>
     </Routes>
-    
-
     </BrowserRouter>
-
   );
 }
 
