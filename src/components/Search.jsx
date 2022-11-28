@@ -9,7 +9,7 @@ import {AuthContext} from '../context/AuthContext'
 function Search() {
   const [userName , setName] = useState("");
   const [user , setUser] = useState(null);
-  const [err , setErr] = useState("false");
+  const [err , setErr] = useState(false);
 
   const {currentUser} = useContext(AuthContext);
 
@@ -22,9 +22,8 @@ function Search() {
       querySnapshot.forEach((doc) => {
         setUser(doc.data())
       });
-    }catch(err) {
+    }catch (err) {
       setErr(true);
-      console.log(err)
     }
     };
 
@@ -40,14 +39,14 @@ function Search() {
       const res = await getDoc(doc(db , 'chats' , combinedId));
 
       if(!res.exists()) {
-        await setDoc(doc(db , 'chats' , combinedId),{messages: []});
+        await setDoc(doc(db , 'chats' , combinedId),{messages: [] });
 
         //create user chats
         await updateDoc(doc(db, 'userChats' , currentUser.uid), {
           [combinedId+".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
-            photoURL: user.photoURL
+            photoURL: user.photoURL,
           },
           [combinedId+".date"]: serverTimestamp()
         });
@@ -60,29 +59,31 @@ function Search() {
           [combinedId+".date"]: serverTimestamp()
         });
       }
-    }catch (err) {
-      setErr(true);
-      console.log(err)
+    } catch (err) {
+     setErr(true)
     };
     
-    
-    // create user chats
+   setUser(null);
+   setName("") 
+   
   };
 
   return (
       <div className="search">
         <div className="searchForm">
-          <input type='text' placeholder='Find a user' onKeyDown={handelKey} onChange={e=>setName(e.target.value)}></input>
+          <input type='text' placeholder='Find a user' onKeyDown={handelKey} onChange={(e)=>setName(e.target.value)} value={userName}></input>
         </div>
         {err && <span>User not found!</span>}
-        {user && <div className="userChat" onClick={handelSelect}>
+        {user && (
+        <div className="userChat" onClick={handelSelect}>
          <img src={user.photoURL} alt='no'></img>
 
           <div className="userChatInfo">
               <span>{user.displayName}</span>
 
           </div>
-        </div>}
+        </div>
+        )}
       </div>
   )
 }
